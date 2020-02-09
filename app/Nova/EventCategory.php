@@ -42,7 +42,7 @@ class EventCategory extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),
+            ID::make()->onlyOnForms(),
             Text::make('Category Name', 'name'),
             HasMany::make('Events'),
         ];

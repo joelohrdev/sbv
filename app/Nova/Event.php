@@ -44,7 +44,7 @@ class Event extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),
+            ID::make()->onlyOnForms(),
             BelongsTo::make('Category', 'eventcategory', 'App\Nova\EventCategory'),
             Text::make('Event Name', 'name'),
             Textarea::make('Details')->nullable(),

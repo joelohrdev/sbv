@@ -49,18 +49,18 @@ class EventDate extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable()->onlyOnForms(),
+            ID::make()->onlyOnForms(),
             BelongsTo::make('Event')->sortable(),
-            MorphTo::make('Eventdateable')->types([
+            MorphTo::make('Volunteer', 'Eventdateable')->types([
                 User::class,
                 Player::class,
             ])->nullable()->sortable(),
-            Date::make('Date'),
+            Date::make('Date')->format('MMM DD, YYYY'),
             TimeField::make('Time')->withTwelveHourTime(),
             Boolean::make('Attended')
                 ->trueValue('1')
                 ->falseValue('0')
-                ->withMeta(['value' => $this->active ?? true])->sortable(),
+                ->sortable(),
             Textarea::make('Notes')->nullable(),
         ];
     }

@@ -43,7 +43,7 @@ class Player extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),
+            ID::make()->onlyOnForms(),
             BelongsTo::make('User'),
             Text::make('First Name'),
             Text::make('Last Name'),

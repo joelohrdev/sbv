@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\EventDate;
+use App\Player;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EventDateController extends Controller
 {
@@ -55,9 +57,15 @@ class EventDateController extends Controller
      * @param  \App\EventDate  $eventDate
      * @return \Illuminate\Http\Response
      */
-    public function edit(EventDate $eventDate)
+    public function edit(EventDate $eventDate, $id)
     {
-        //
+        $event = EventDate::findOrFail($id);
+
+        $parent = Auth::user()->get();
+        $players = Player::get()->where('user_id', Auth::user()->id);
+        $mergedFamily = $parent->toBase()->merge($players);
+
+        return view('event.edit', compact('event', 'mergedFamily'));
     }
 
     /**
@@ -67,9 +75,18 @@ class EventDateController extends Controller
      * @param  \App\EventDate  $eventDate
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EventDate $eventDate)
+    public function update(Request $request, EventDate $eventDate, $id)
     {
-        //
+        $validate = $request->validate([
+            'event_id',
+            'eventdateable_id',
+            'date',
+            'time'
+        ]);
+
+        $event = EventDate::whereId($id);
+
+        dd($event);
     }
 
     /**

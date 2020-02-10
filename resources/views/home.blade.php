@@ -25,7 +25,7 @@
                     <ul class="list-group list-group-flush">
                         @foreach($e->eventdates as $ed)
                             <li class="list-group-item">
-                                <a href="#" class="btn-outline-primary btn-sm waves-effect waves-light float-right">Sign Up</a>
+                                <a href="/event/{{ $ed->id }}" class="btn-outline-primary btn-sm waves-effect waves-light float-right">Sign Up</a>
                                 {{ \Carbon\Carbon::parse($ed->date)->toFormattedDateString() }} at {{ \Carbon\Carbon::parse($ed->time)->format('g:i A') }}
                             </li>
                         @endforeach

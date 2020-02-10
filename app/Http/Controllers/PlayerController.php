@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class PlayerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +29,7 @@ class PlayerController extends Controller
      */
     public function create()
     {
-        //
+        return view('player.create');
     }
 
     /**
@@ -35,7 +40,16 @@ class PlayerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'user_id' => 'required',
+           'first_name' => 'required',
+           'last_name' => 'required',
+           'coach' => 'required'
+        ]);
+
+        $player = Player::create($validate);
+
+        return redirect('/myevents');
     }
 
     /**

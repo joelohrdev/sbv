@@ -15,8 +15,12 @@ Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/api/events', 'HomeController@get');
 
+Route::get('/event/{id}', 'EventDateController@edit');
+Route::post('/event/{id}', 'EventDateController@update');
+
 Route::get('/myevents', 'EventController@index')->name('myevents');
+
+Route::get('/newplayer', 'PlayerController@create');
+Route::post('/newplayer', 'PlayerController@store');

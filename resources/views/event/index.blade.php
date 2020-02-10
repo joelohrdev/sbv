@@ -14,7 +14,7 @@
                                     @foreach ($mergedFamily as $f)
                                         <p class="card-text"><i class="feather icon-user mr-2"></i>{{ $f->first_name ?? $f->name }} {{ $f->last_name }}<br></p>
                                     @endforeach
-                                    <a href="#" class="btn bg-primary btn-block mt-2 text-white">Create New Player</a>
+                                    <a href="/newplayer" class="btn bg-primary btn-block mt-2 text-white">Create New Player</a>
                                 </div>
                             </div>
                         </div>

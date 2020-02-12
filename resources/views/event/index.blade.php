@@ -12,7 +12,7 @@
                                     <h4 class="card-title">Family</h4>
                                     <hr>
                                     @foreach ($mergedFamily as $f)
-                                        <p class="card-text"><i class="feather icon-user mr-2"></i>{{ $f->first_name ?? $f->name }} {{ $f->last_name }}<br></p>
+                                        <p class="card-text"><i class="feather icon-user mr-2"></i>{{ $f->name }}<br></p>
                                     @endforeach
                                     <a href="/newplayer" class="btn bg-primary btn-block mt-2 text-white">Create New Player</a>
                                 </div>
@@ -31,7 +31,7 @@
                                     <div class="card-content">
                                         <div class="card-body">
                                             <h4 class="card-title">{{ $be->event->name }}</h4>
-                                            <p>{{ $be->eventdateable->name ?? $be->eventdateable->first_name }} {{ $be->eventdateable->last_name }}<br>
+                                            <p>{{ $be->eventdateable->name }}<br>
                                             {{ \Carbon\Carbon::parse($be->date)->format('F d, Y') }}<br>
                                             {{ \Carbon\Carbon::parse($be->time)->format('g:i A') }}</p>
                                             <p class="card-text"><small class="text-muted">Signed up {{ \Carbon\Carbon::parse($be->created_at)->diffForHumans() }}</small></p>
@@ -58,7 +58,7 @@
                                     <tbody>
                                         @foreach($ppem as $pe)
                                             <tr>
-                                                <td>{{ $pe->eventdateable->name ?? $pe->eventdateable->first_name }} {{ $pe->eventdateable->last_name }}</td>
+                                                <td>{{ $pe->eventdateable->name }}</td>
                                                 <td>{{ $pe->event->name }}</td>
                                                 <td>{{ \Carbon\Carbon::parse($pe->date)->format('F d, Y') }}</td>
                                                 <td>{{ \Carbon\Carbon::parse($pe->time)->format('g:i A') }}</td>

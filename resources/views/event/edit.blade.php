@@ -21,17 +21,17 @@
                                 <label for="eventdateable_id" class="col-md-4 col-form-label text-md-right">{{ __('Select a Member') }}</label>
 
                                 <div class="col-md-6">
-                                    <select name="eventdateable_id" class="form-control" id="eventdateable_id">
+                                    <select name="eventdateable" class="form-control" id="eventdateable_id">
                                         <option></option>
                                         @foreach($mergedFamily as $mf)
-                                            <option value="{{ $mf->id }}">{{ $mf->name ?? $mf->first_name }} {{ $mf->last_name }}</option>
+                                            <option value="{{ class_basename(get_class($mf)) . '.' . $mf->id }}">{{ $mf->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
 
-                            <input name="event_id" type="hidden" value="{{ $event->date->format('Y-m-d') }}">
-                            <input name="event_id" type="hidden" value="{{ $event->time }}">
+                            <input name="date" type="hidden" value="{{ $event->date->format('Y-m-d') }}">
+                            <input name="time" type="hidden" value="{{ $event->time }}">
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">

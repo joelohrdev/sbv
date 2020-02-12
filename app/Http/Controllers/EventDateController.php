@@ -77,6 +77,10 @@ class EventDateController extends Controller
      */
     public function update(Request $request, EventDate $eventDate, $id)
     {
+        $eventdateablePair = explode('.', $request->eventdateable);
+        $edType = $eventdateablePair[0];
+        $edId = $eventdateablePair[1];
+
         $validate = $request->validate([
             'event_id',
             'eventdateable_id',
@@ -84,9 +88,15 @@ class EventDateController extends Controller
             'time'
         ]);
 
-        $event = EventDate::whereId($id);
+        $eventDate = EventDate::find($id);
+        $eventDate->event_id = $request->get('event_id');
+        $eventDate->eventdateable_type = "App\\" . $edType;
+        $eventDate->eventdateable_id = $edId;
+        $eventDate->date = $request->get('date');
+        $eventDate->time = $request->get('time');
+        $eventDate->save();
 
-        dd($event);
+        return redirect('/myevents');
     }
 
     /**

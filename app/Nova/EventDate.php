@@ -40,6 +40,11 @@ class EventDate extends Resource
         'id',
     ];
 
+    public static function label()
+    {
+        return 'Event Dates';
+    }
+
     /**
      * Get the fields displayed by the resource.
      *

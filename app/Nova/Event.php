@@ -45,10 +45,10 @@ class Event extends Resource
     {
         return [
             ID::make()->onlyOnForms(),
-            BelongsTo::make('Category', 'eventcategory', 'App\Nova\EventCategory'),
+            BelongsTo::make('Event Category', 'eventcategory', EventCategory::class),
             Text::make('Event Name', 'name'),
             Textarea::make('Details')->nullable(),
-            HasMany::make('EventDates'),
+            HasMany::make('EventDates')->nullable(),
         ];
     }
 

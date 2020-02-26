@@ -12,6 +12,7 @@
     </div>
     @endguest
     <div class="row">
+        @if (! $events->isEmpty() )
         @foreach ($events as $e)
         <div class="col-xl-4 col-md-6 col-sm-12">
             <div class="card">
@@ -22,19 +23,26 @@
                             <span class="badge badge-pill bg-success">{{ $e->eventcategory->name }}</span>
                         </p>
                     </div>
+
                     <ul class="list-group list-group-flush">
+                        @if (! $e->eventdates->isEmpty() )
                         @foreach($e->eventdates as $ed)
                             <li class="list-group-item">
                                 <a href="/event/{{ $ed->id }}" class="btn-outline-primary btn-sm waves-effect waves-light float-right">Sign Up</a>
                                 {{ \Carbon\Carbon::parse($ed->date)->toFormattedDateString() }} at {{ \Carbon\Carbon::parse($ed->time)->format('g:i A') }}
                             </li>
                         @endforeach
+                        @else
+                            <li class="list-group-item">No available days.</li>
+                        @endif
                     </ul>
-
                 </div>
             </div>
         </div>
         @endforeach
+        @else
+            <p>There no available events at this time.</p>
+        @endif
     </div>
 </div>
 @endsection

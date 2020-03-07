@@ -11,7 +11,8 @@
                                 <div class="card-body">
                                     <h4 class="card-title">Family</h4>
                                     <hr>
-                                    @foreach ($mergedFamily as $f)
+                                    <p class="card-text"><i class="feather icon-user mr-2"></i>{{ Auth::user()->name }}<br></p>
+                                    @foreach ($players as $f)
                                         <p class="card-text"><i class="feather icon-user mr-2"></i>{{ $f->name }}<br></p>
                                     @endforeach
                                     <a href="/newplayer" class="btn bg-primary btn-block mt-2 text-white">Create New Player</a>

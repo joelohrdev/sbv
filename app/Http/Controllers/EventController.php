@@ -23,9 +23,9 @@ class EventController extends Controller
 
     public function index()
     {
-        $parent = Auth::user()->get();
+        //$parent = Auth::user()->get();
         $players = Player::get()->where('user_id', Auth::user()->id);
-        $mergedFamily = $parent->toBase()->merge($players);
+        //$mergedFamily = $parent->toBase()->merge($players);
 
         $pe = EventDate::with('event')->get()->where('eventdateable_id', Auth::user()->id)->where('date', '>=', Carbon::now());
         $ple = EventDate::get()->where('eventdateable_id', $players)->where('date', '>=', Carbon::now());
@@ -35,7 +35,7 @@ class EventController extends Controller
         $pple = EventDate::get()->where('eventdateable_id', $players)->where('date', '<', Carbon::now());
         $ppem = $ppe->toBase()->merge($pple);
 
-        return view('event.index', compact('mergedFamily', 'pem', 'ppem'));
+        return view('event.index', compact('players', 'pem', 'ppem'));
     }
 
     /**

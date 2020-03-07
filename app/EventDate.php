@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use KirschbaumDevelopment\NovaMail\Traits\Mailable;
 
 class EventDate extends Model
 {
+
     protected $dates = [
         'date',
     ];

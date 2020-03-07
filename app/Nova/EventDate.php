@@ -14,6 +14,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Silvanite\NovaFieldCheckboxes\Checkboxes;
+use KirschbaumDevelopment\NovaMail\Actions\SendMail;
 
 class EventDate extends Resource
 {

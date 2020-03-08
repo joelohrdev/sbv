@@ -3,4 +3,4 @@
 
 ## CLGFS Volunteering
 
-App to keep track off volunteering.
+App to keep track of volunteering.

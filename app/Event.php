@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     protected $fillable = [
-      'event_category_id',
+      'category_id',
       'name',
       'details'
     ];
 
-    public function eventcategory()
+    public function category()
     {
-        return $this->belongsTo(EventCategory::class, 'event_category_id');
+        return $this->belongsTo(Category::class);
     }
 
     public function eventdates()

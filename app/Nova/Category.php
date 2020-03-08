@@ -8,14 +8,14 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class EventCategory extends Resource
+class Category extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\EventCategory';
+    public static $model = 'App\Category';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -30,7 +30,7 @@ class EventCategory extends Resource
      * @var array
      */
     public static $search = [
-        'name',
+        'id',
     ];
 
     /**
@@ -42,7 +42,7 @@ class EventCategory extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->onlyOnForms(),
+            ID::make()->sortable(),
             Text::make('Category Name', 'name'),
             HasMany::make('Events'),
         ];

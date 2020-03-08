@@ -45,7 +45,7 @@ class Event extends Resource
     {
         return [
             ID::make()->onlyOnForms(),
-            BelongsTo::make('Event Category', 'eventcategory', EventCategory::class),
+            BelongsTo::make('Category'),
             Text::make('Event Name', 'name'),
             Textarea::make('Details')->nullable(),
             HasMany::make('EventDates')->nullable(),

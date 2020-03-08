@@ -62,6 +62,20 @@ Vue.component('index-code-field', require('./components/Index/TextField.vue'))
 Vue.component('detail-code-field', require('./components/Detail/CodeField.vue'))
 Vue.component('form-code-field', require('./components/Form/CodeField.vue'))
 
+// Currency Field...
+Vue.component(
+  'index-currency-field',
+  require('./components/Index/CurrencyField.vue')
+)
+Vue.component(
+  'detail-currency-field',
+  require('./components/Detail/CurrencyField.vue')
+)
+Vue.component(
+  'form-currency-field',
+  require('./components/Form/CurrencyField.vue')
+)
+
 // KeyValue Field...
 Vue.component(
   'detail-key-value-field',

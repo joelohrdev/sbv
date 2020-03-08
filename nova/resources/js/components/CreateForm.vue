@@ -1,5 +1,7 @@
 <template>
   <loading-view :loading="loading">
+    <custom-create-header class="mb-3" :resource-name="resourceName" />
+
     <form
       v-if="panels"
       @submit="submitViaCreateResource"
@@ -290,9 +292,7 @@ export default {
     },
 
     isHasOneRelationship() {
-      return (
-        this.relationResponse && this.relationResponse.hasOneRelationship != ''
-      )
+      return this.relationResponse && this.relationResponse.hasOneRelationship
     },
 
     shouldShowAddAnotherButton() {

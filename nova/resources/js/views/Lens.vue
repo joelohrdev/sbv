@@ -1,5 +1,7 @@
 <template>
   <loading-view :loading="initialLoading" :dusk="lens + '-lens-component'">
+    <custom-lens-header class="mb-3" :resource-name="resourceName" />
+
     <div v-if="shouldShowCards">
       <cards
         v-if="smallCards.length > 0"

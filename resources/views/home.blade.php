@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <h4 class="card-title">{{ $e->name }}</h4>
                         <p class="card-text">
-                            <span class="badge badge-pill bg-success">{{ $e->eventcategory->name }}</span>
+                            <span class="badge badge-pill bg-success">{{ $e->category->name }}</span>
                         </p>
                     </div>
 

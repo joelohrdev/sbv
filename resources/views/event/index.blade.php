@@ -35,7 +35,7 @@
                                             <p>{{ $be->eventdateable->name }}<br>
                                             {{ \Carbon\Carbon::parse($be->date)->format('F d, Y') }}<br>
                                             {{ \Carbon\Carbon::parse($be->time)->format('g:i A') }}</p>
-                                            <p class="card-text"><small class="text-muted">Signed up {{ \Carbon\Carbon::parse($be->created_at)->diffForHumans() }}</small></p>
+{{--                                            <p class="card-text"><small class="text-muted">Signed up {{ \Carbon\Carbon::parse($be->created_at)->diffForHumans() }}</small></p>--}}
                                         </div>
                                     </div>
                                 </div>

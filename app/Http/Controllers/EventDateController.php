@@ -62,10 +62,10 @@ class EventDateController extends Controller
         $event = EventDate::findOrFail($id);
 
         $parent = Auth::user()->get();
-        $players = Player::get()->where('user_id', Auth::user()->id);
+        $players = Player::get()->where('user_id', Auth::id());
         $mergedFamily = $parent->toBase()->merge($players);
 
-        return view('event.edit', compact('event', 'mergedFamily'));
+        return view('event.edit', compact('event', 'mergedFamily', 'players'));
     }
 
     /**

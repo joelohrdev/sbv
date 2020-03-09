@@ -18,13 +18,15 @@
                             <input name="event_id" type="hidden" value="{{ $event->event->id }}">
 
                             <div class="form-group row">
+
                                 <label for="eventdateable_id" class="col-md-4 col-form-label text-md-right">{{ __('Select a Member') }}</label>
 
                                 <div class="col-md-6">
                                     <select name="eventdateable" class="form-control" id="eventdateable_id">
                                         <option></option>
-                                        @foreach($mergedFamily as $mf)
-                                            <option value="{{ class_basename(get_class($mf)) . '.' . $mf->id }}">{{ $mf->name }}</option>
+                                        <option value="{{ class_basename(Auth::user()) . '.' . Auth::id() }}">{{ Auth::user()->name }}</option>
+                                        @foreach($players as $p)
+                                            <option value="{{ class_basename(get_class($p)) . '.' . $p->id }}">{{ $p->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

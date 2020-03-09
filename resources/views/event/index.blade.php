@@ -23,7 +23,6 @@
                 </div>
             </div>
             <div class="col-8">
-                {{--                    <h1>Upcoming Events</h1>--}}
                 <div class="card-deck-wrapper mt-lg-5">
                     <div class="card-deck">
                         @foreach($pem as $be)
